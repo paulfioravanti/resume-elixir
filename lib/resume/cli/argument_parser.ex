@@ -8,7 +8,7 @@ defmodule Resume.CLI.ArgumentParser do
     |> process
   end
 
-  def parse_args(argv) do
+  defp parse_args(argv) do
     parse = OptionParser.parse(
       argv,
       switches: [help: :boolean, version: :boolean, locale: :string],
