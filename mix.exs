@@ -5,7 +5,7 @@ defmodule Resume.Mixfile do
     [app: :resume,
      version: "0.0.1",
      elixir: "~> 1.1",
-     escript: escript,
+     escript: [main_module: Resume],
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      deps: deps]
@@ -33,9 +33,5 @@ defmodule Resume.Mixfile do
       { :httpoison, "~> 0.7.2" },
       { :gettext, "~> 0.7"}
     ]
-  end
-
-  defp escript do
-    [main_module: Resume]
   end
 end
