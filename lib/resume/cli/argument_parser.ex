@@ -40,7 +40,7 @@ defmodule Resume.CLI.ArgumentParser do
   defp process({ :locale, locale }), do: locale
   defp process(:version) do
     IO.puts @version
-    throw :halt
+    throw { :halt, 0 }
   end
   defp process({ :error, message }) do
     IO.puts IO.ANSI.format([:red, message], true)
@@ -57,6 +57,6 @@ defmodule Resume.CLI.ArgumentParser do
           -h, --help\t\tShow this message
           -v, --version\t\tShow version
     """
-    throw :halt
+    throw { :halt, 0 }
   end
 end

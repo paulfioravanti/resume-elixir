@@ -4,11 +4,11 @@ defmodule Resume.CLI.Application do
 
   def start(argv) do
     try do
-      ArgumentParser.parse(argv)
+      body = ArgumentParser.parse(argv)
       |> ResumeDataFetcher.fetch
+      IO.puts Base.decode64!(body[:title])
     catch
-      :halt ->
-        System.halt(0)
+      { :halt, num } -> System.halt(num)
     end
   end
 end
